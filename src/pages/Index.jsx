@@ -28,7 +28,14 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = orders.length + 1;
-    setOrders(prev => [...prev, { id, ...newOrder }]);
+    const { customer, product, quantity, price } = newOrder;
+    setOrders(prev => [...prev, { 
+      id, 
+      customer, 
+      product, 
+      quantity: Number(quantity), 
+      price: Number(price) 
+    }]);
     setNewOrder({ customer: '', product: '', quantity: '', price: '' });
   };
 
